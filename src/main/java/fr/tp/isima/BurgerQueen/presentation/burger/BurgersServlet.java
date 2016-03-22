@@ -3,6 +3,7 @@ package fr.tp.isima.BurgerQueen.presentation.burger;
 import javax.servlet.http.HttpServletRequest;
 
 import fr.tp.isima.BurgerQueen.business.Burgers;
+import fr.tp.isima.BurgerQueen.business.Ingredients;
 import fr.tp.isima.BurgerQueen.presentation.NavigableServlet;
 import fr.tp.isima.BurgerQueen.presentation.Page;
 import fr.tp.isima.BurgerQueen.presentation.Page.PageBuilder;
@@ -13,9 +14,9 @@ abstract class BurgersServlet extends NavigableServlet {
 		return getApplicationObjects().get(Burgers.class);
 	}
 
-	// final protected Categories getCategories() {
-	// return getApplicationObjects().get(Categories.class);
-	// }
+	final protected Ingredients getIngredients() {
+		return getApplicationObjects().get(Ingredients.class);
+	}
 
 	protected final PageBuilder forwardOnEdit() {
 		return Page.forwardOn("/jsp/editBurger.jsp");

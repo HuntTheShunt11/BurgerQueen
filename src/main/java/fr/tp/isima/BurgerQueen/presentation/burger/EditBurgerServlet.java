@@ -17,7 +17,7 @@ public class EditBurgerServlet extends BurgersServlet {
 	@Override
 	protected Page process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		final Burger burger = getArticles().findById(Long.parseLong(req.getParameter("id")));
-		final BurgerViewBean burgerViewBean = new BurgerViewBean(getArticles(), getCategories(), burger);
+		final BurgerViewBean burgerViewBean = new BurgerViewBean(getArticles(), getIngredients(), burger);
 		return forwardOnEdit().withForm(Form.successForm(burgerViewBean)).build();
 	}
 }
