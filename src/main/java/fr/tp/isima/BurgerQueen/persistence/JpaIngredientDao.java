@@ -7,19 +7,19 @@ public class JpaIngredientDao implements IngredientDao {
 	private final EntityManagerExecutor entityManagerExecutor = new EntityManagerExecutor();
 
 	@Override
-	public List<IngredientBean> findAllCategories() {
+	public List<IngredientBean> findAllIngredients() {
 		return entityManagerExecutor.execute(em -> em.createQuery("select a from Ingredient a", IngredientBean.class).getResultList());
 	}
 
 	@Override
-	public void save(IngredientBean articleBean) {
-		if (articleBean.getId() > 0) {
-			entityManagerExecutor.update(articleBean);
+	public void save(IngredientBean ingredientBean) {
+		if (ingredientBean.getId() > 0) {
+			entityManagerExecutor.update(ingredientBean);
 		} else {
 			try {
-				entityManagerExecutor.insert(articleBean);
+				entityManagerExecutor.insert(ingredientBean);
 			} catch (final RuntimeException e) {
-				articleBean.setId(0);
+				ingredientBean.setId(0);
 				throw e;
 			}
 		}

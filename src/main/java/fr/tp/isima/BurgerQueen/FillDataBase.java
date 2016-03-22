@@ -1,5 +1,7 @@
 package fr.tp.isima.BurgerQueen;
 
+import java.util.List;
+
 import fr.tp.isima.BurgerQueen.common.ApplicationsObjects;
 import fr.tp.isima.BurgerQueen.persistence.BurgerBean;
 import fr.tp.isima.BurgerQueen.persistence.BurgerDao;
@@ -11,9 +13,11 @@ public class FillDataBase {
 	public static void main(String[] args) {
 		final ApplicationsObjects objects = ApplicationsObjects.loadAll();
 
-		objects.get(BurgerDao.class).deleteAll();
 		final IngredientDao ingredientDao = objects.get(IngredientDao.class);
 		final BurgerDao burgerDao = objects.get(BurgerDao.class);
+
+		final List<BurgerBean> burgers = burgerDao.findAllBurgers();
+
 		ingredientDao.deleteAll();
 		burgerDao.deleteAll();
 
@@ -26,14 +30,15 @@ public class FillDataBase {
 		ingredientDao.save(steak);
 
 		final BurgerBean burger = new BurgerBean();
-		burger.setNom("Le classic tomate");
+		burger.setNom("Le classic tomato");
 		burger.addIngredient(tomate);
 		burger.addIngredient(steak);
-		burger.setDescription("blblblblblbl");
+		burger.setDescription("cacahuete");
 		burger.gout.vote(5.0f);
 		burger.orig.vote(4.0f);
 		burger.pres.vote(3.0f);
 		burger.qual.vote(2.0f);
 		burgerDao.save(burger);
+
 	}
 }

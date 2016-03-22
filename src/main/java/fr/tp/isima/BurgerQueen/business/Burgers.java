@@ -13,45 +13,45 @@ import fr.tp.isima.BurgerQueen.persistence.IngredientDao;
  * Cette classe de service permet d'accéder à l'ensemble des articles et
  * categories
  * 
- * @see ArticleDao
- * @see CategorieDao
+ * @see BurgerDao
+ * @see IngredientDao
  * 
  * @author Benjamin KUCHCIK
  * 
  */
 public class Burgers {
 
-	private final BurgerDao articleDao;
-	private final IngredientDao categoryDao;
+	private final BurgerDao burgerDao;
+	private final IngredientDao ingredientDao;
 
-	public Burgers(BurgerDao articleDao, IngredientDao categoryDao) {
-		Preconditions.checkNotNull(articleDao, "articleDao");
-		Preconditions.checkNotNull(categoryDao, "categoryDao");
-		this.articleDao = articleDao;
-		this.categoryDao = categoryDao;
+	public Burgers(BurgerDao burgerDao, IngredientDao ingredientDao) {
+		Preconditions.checkNotNull(burgerDao, "burgerDao");
+		Preconditions.checkNotNull(ingredientDao, "ingredientDao");
+		this.burgerDao = burgerDao;
+		this.ingredientDao = ingredientDao;
 
 	}
 
-	public Burger createArticle() {
-		final BurgerBean articleBean = new BurgerBean();
-		return new Burger(articleBean, articleDao, categoryDao);
+	public Burger createBurger() {
+		final BurgerBean burgerBean = new BurgerBean();
+		return new Burger(burgerBean, burgerDao, ingredientDao);
 	}
 
 	/**
 	 * 
-	 * @return la liste de tous les articles disponibles
+	 * @return la liste de tous les burgers disponibles
 	 */
-	public List<Burger> findAllArticles() {
-		return articleDao.findAllArticles().stream().map(articleBean -> new Burger(articleBean, articleDao,
-				categoryDao)).collect(Collectors.toList());
+	public List<Burger> findAllBurgers() {
+		return burgerDao.findAllBurgers().stream().map(burgerBean -> new Burger(burgerBean, burgerDao,
+				ingredientDao)).collect(Collectors.toList());
 	}
 
 	public Burger findById(long parseLong) {
-		return new Burger(articleDao.findById(parseLong), articleDao, categoryDao);
+		return new Burger(burgerDao.findById(parseLong), burgerDao, ingredientDao);
 	}
 
-	public void deleteArticleById(long id) {
-		articleDao.delete(articleDao.findById(id));
+	public void deleteBurgerById(long id) {
+		burgerDao.delete(burgerDao.findById(id));
 	}
 
 }

@@ -10,24 +10,24 @@ import com.google.common.base.Optional;
 import fr.tp.isima.BurgerQueen.persistence.IngredientDao;
 
 public class Ingredients {
-	private final IngredientDao categoryDao;
+	private final IngredientDao ingredientDao;
 
-	public Ingredients(IngredientDao categoryDao) {
+	public Ingredients(IngredientDao ingredientDao) {
 		super();
-		this.categoryDao = categoryDao;
+		this.ingredientDao = ingredientDao;
 	}
 
 	/**
 	 * 
-	 * @return la liste de toutes les categories d'article
+	 * @return la liste de tous les ingredients
 	 */
-	public List<Ingredient> findAllCategories() {
-		return categoryDao.findAllCategories().stream().map((categ) -> new Ingredient(categoryDao, categ)).collect(Collectors.toList());
+	public List<Ingredient> findAllIngredients() {
+		return ingredientDao.findAllIngredients().stream().map((ingre) -> new Ingredient(ingredientDao, ingre)).collect(Collectors.toList());
 	}
 
-	public Optional<Ingredient> findCategoryById(long id) {
+	public Optional<Ingredient> findIngredientById(long id) {
 		try {
-			return Optional.of(new Ingredient(categoryDao, categoryDao.findById(id)));
+			return Optional.of(new Ingredient(ingredientDao, ingredientDao.findById(id)));
 		} catch (final NoResultException e) {
 			return Optional.absent();
 		}

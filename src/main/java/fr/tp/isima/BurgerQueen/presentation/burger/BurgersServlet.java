@@ -2,8 +2,6 @@ package fr.tp.isima.BurgerQueen.presentation.burger;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.experimental.categories.Categories;
-
 import fr.tp.isima.BurgerQueen.business.Burgers;
 import fr.tp.isima.BurgerQueen.presentation.NavigableServlet;
 import fr.tp.isima.BurgerQueen.presentation.Page;
@@ -15,19 +13,19 @@ abstract class BurgersServlet extends NavigableServlet {
 		return getApplicationObjects().get(Burgers.class);
 	}
 
-	final protected Categories getCategories() {
-		return getApplicationObjects().get(Categories.class);
-	}
+	// final protected Categories getCategories() {
+	// return getApplicationObjects().get(Categories.class);
+	// }
 
 	protected final PageBuilder forwardOnEdit() {
-		return Page.forwardOn("/jsp/editArticle.jsp");
+		return Page.forwardOn("/jsp/editBurger.jsp");
 	}
 
 	protected final PageBuilder redirectOnListArticles(HttpServletRequest req) {
-		return Page.redirectOn(req.getContextPath() + "/listArticles");
+		return Page.redirectOn(req.getContextPath() + "/listBurgers");
 	}
 
 	protected final PageBuilder forwardOnList() {
-		return Page.forwardOn("/jsp/listArticles.jsp");
+		return Page.forwardOn("/jsp/listBurgers.jsp");
 	}
 }

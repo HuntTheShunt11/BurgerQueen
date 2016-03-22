@@ -9,7 +9,7 @@
 		<validation-mode>CALLBACK</validation-mode>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:./burgers.db" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:H:/zz3/devWeb/BurgerQueen/burgers.db" />
 			<property name="eclipselink.logging.level" value="ALL" />
 			<property name="eclipselink.ddl-generation" value="create-tables" />
 		</properties>

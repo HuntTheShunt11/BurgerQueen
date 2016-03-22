@@ -16,7 +16,7 @@
 	        <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
 	        	<div class="panel panel-default">
 	        		<div class="panel-heading">
-			    		<h3 class="panel-title">Liste des burgers notés&nbsp;<a href="${pageContext.request.contextPath}/addNewArticle" style="float:right">Créer un article</a></h3>
+<%-- 			    		<h3 class="panel-title">Liste des burgers notés&nbsp;<a href="${pageContext.request.contextPath}/addNewArticle" style="float:right">Créer un article</a></h3> --%>
 		 			</div>
 		 			<div class="panel-body">
 		 				<table class="table table-striped">
@@ -30,13 +30,12 @@
 			 					</tr>
 		 					</thead>
 		 					<tbody>
-			 					<c:forEach items="${articles}" var="article">
+			 					<c:forEach items="${burgers}" var="burger">
 					    			<tr>
-					    				<td>${article.id}</td>
-					    				<td>${article.reference}</td>
-					    				<td>${article.description}</td>
-					    				<td>${article.category.libelle}</td>
-					    				<td><a href="${pageContext.request.contextPath}/editArticle?id=${article.id}">modifier</a>&nbsp;<a href="${pageContext.request.contextPath}/deleteArticle?id=${article.id}">supprimer</a></td>
+					    				<td>${burger.id}</td>
+					    				<td>${burger.nom}</td>
+					    				<td>${burger.description}</td>
+ 					    				<td><a href="${pageContext.request.contextPath}/editBurger?id=${burger.id}">modifier</a>&nbsp;<a href="${pageContext.request.contextPath}/deleteBurger?id=${burger.id}">supprimer</a></td>
 					    			</tr>
 					    		</c:forEach>
 				    		</tbody>

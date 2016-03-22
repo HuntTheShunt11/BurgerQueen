@@ -7,19 +7,19 @@ public class JpaBurgerDao implements BurgerDao {
 	private final EntityManagerExecutor entityManagerExecutor = new EntityManagerExecutor();
 
 	@Override
-	public List<BurgerBean> findAllArticles() {
-		return entityManagerExecutor.execute(em -> em.createQuery("select a from Burger a", BurgerBean.class).getResultList());
+	public List<BurgerBean> findAllBurgers() {
+		return entityManagerExecutor.execute(em -> em.createQuery("from Burger a", BurgerBean.class).getResultList());
 	}
 
 	@Override
-	public void save(BurgerBean articleBean) {
-		if (articleBean.getId() > 0) {
-			entityManagerExecutor.update(articleBean);
+	public void save(BurgerBean burgerBean) {
+		if (burgerBean.getId() > 0) {
+			entityManagerExecutor.update(burgerBean);
 		} else {
 			try {
-				entityManagerExecutor.insert(articleBean);
+				entityManagerExecutor.insert(burgerBean);
 			} catch (final RuntimeException e) {
-				articleBean.setId(0);
+				burgerBean.setId(0);
 				throw e;
 			}
 		}

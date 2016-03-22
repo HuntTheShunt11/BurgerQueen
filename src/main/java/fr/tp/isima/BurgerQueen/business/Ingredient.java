@@ -8,49 +8,47 @@ import fr.tp.isima.BurgerQueen.persistence.IngredientBean;
 import fr.tp.isima.BurgerQueen.persistence.IngredientDao;
 
 /**
- * La catégorie permet de regrouper les articles ( {@link Article}) rendant
- * possible l'affichage thématique
  * 
  * @author Benjamin
  *
  */
 public class Ingredient {
 
-	private final IngredientBean categoryBean;
-	private final IngredientDao categoryDao;
+	private final IngredientBean ingredientBean;
+	private final IngredientDao ingredientDao;
 
-	Ingredient(IngredientDao categoryDao, IngredientBean categoryBean) {
-		this.categoryDao = categoryDao;
-		Preconditions.checkNotNull(categoryBean);
-		this.categoryBean = categoryBean;
+	Ingredient(IngredientDao ingredientDao, IngredientBean ingredientBean) {
+		this.ingredientDao = ingredientDao;
+		Preconditions.checkNotNull(ingredientBean);
+		this.ingredientBean = ingredientBean;
 	}
 
-	public IngredientBean getCategoryBean() {
-		return categoryBean;
+	public IngredientBean getIngredientBean() {
+		return ingredientBean;
 	}
 
 	public String getNom() {
-		return categoryBean.getNom();
+		return ingredientBean.getNom();
 	}
 
 	public long getId() {
-		return categoryBean.getId();
+		return ingredientBean.getId();
 	}
 
 	public void save() {
-		categoryDao.save(categoryBean);
+		ingredientDao.save(ingredientBean);
 	}
 
 	@Override
 	public int hashCode() {
-		return HashCode.fromLong(categoryBean.getId()).asInt();
+		return HashCode.fromLong(ingredientBean.getId()).asInt();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Ingredient) {
 			final Ingredient that = (Ingredient) obj;
-			return Objects.equal(categoryBean.getId(), that.categoryBean.getId());
+			return Objects.equal(ingredientBean.getId(), that.ingredientBean.getId());
 		}
 		return false;
 	}

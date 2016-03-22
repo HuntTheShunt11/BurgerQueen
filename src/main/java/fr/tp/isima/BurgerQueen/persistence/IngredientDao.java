@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IngredientDao extends Dao<IngredientBean> {
 
-	List<IngredientBean> findAllCategories();
+	List<IngredientBean> findAllIngredients();
 
 	@Override
 	void save(IngredientBean articleBean);
