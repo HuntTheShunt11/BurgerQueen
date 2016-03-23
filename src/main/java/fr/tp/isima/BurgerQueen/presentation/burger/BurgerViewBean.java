@@ -29,6 +29,10 @@ public class BurgerViewBean {
 		this.burger = burger;
 	}
 
+	public String getNom() {
+		return burger.getNom();
+	}
+
 	public String getDescription() {
 		return burger.getDescription();
 	}

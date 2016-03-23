@@ -10,7 +10,7 @@ import fr.tp.isima.BurgerQueen.presentation.Page.PageBuilder;
 
 abstract class BurgersServlet extends NavigableServlet {
 
-	final protected Burgers getArticles() {
+	final protected Burgers getBurgers() {
 		return getApplicationObjects().get(Burgers.class);
 	}
 
@@ -22,7 +22,7 @@ abstract class BurgersServlet extends NavigableServlet {
 		return Page.forwardOn("/jsp/editBurger.jsp");
 	}
 
-	protected final PageBuilder redirectOnListArticles(HttpServletRequest req) {
+	protected final PageBuilder redirectOnListBurgers(HttpServletRequest req) {
 		return Page.redirectOn(req.getContextPath() + "/listBurgers");
 	}
 

@@ -15,10 +15,9 @@ public class IngredientViewBean {
 		this.ingredient = ingredient;
 	}
 
-	/*
-	 * public boolean isSelected() { return
-	 * ingredient.equals(burger.getIngredients()); }
-	 */
+	public boolean isSelected() {
+		return ingredient.equals(burger.getIngredients());
+	}
 
 	public String getNom() {
 		return ingredient.getNom();

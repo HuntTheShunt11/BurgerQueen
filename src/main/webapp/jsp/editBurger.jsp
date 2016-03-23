@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Enregistrer un article</title>
+<title>Enregistrer un burger</title>
 <%@include file="head.jsp"%>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/formulaire-elegant.css">
@@ -16,33 +16,41 @@
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
         	<div class="panel panel-default">
         		<div class="panel-heading">
-			    		<h3 class="panel-title">Création d'un nouvel article</h3>
+			    		<h3 class="panel-title">Edition d'un burger</h3>
 			 			</div>
 			 			<div class="panel-body">
-			    		<form role="form" method="post" action="${pageContext.request.contextPath}/saveArticle">
+			    		<form role="form" method="post" action="${pageContext.request.contextPath}/saveBurger">
 	    					<div class="form-group ${form.errors.reference.kindOfMessage}">
-	               				<input id="reference" name="reference" type="text" placeholder="Référence de l'article" class="form-control input-sm" value="${form.bean.reference}">
+	               				<input id="reference" name="reference" type="text" placeholder="Référence du burger" class="form-control input-sm" value="${form.bean.id}" readonly>
 	               				<c:if test="${form.errors.reference.error}">
 									<span class="help-block"> ${form.errors.reference.errorMessage}</span>
 								</c:if>
 	  	            		</div>
+	  	            		
+	  	            		
+	  	            		<div class="form-group control-group ${form.errors.nom.kindOfMessage}">
+								<textarea id="description" name="description" class="form-control" placeholder="Nom du burger">${form.bean.nom}</textarea>
+								<c:if test="${form.errors.nom.error}">
+									 <span class="help-block"> ${form.errors.nom.errorMessage}</span>
+								</c:if>
+			    			</div>
 	    		
 			    			<div class="form-group control-group ${form.errors.description.kindOfMessage}">
-								<textarea id="description" name="description" class="form-control" placeholder="Description de l'article">${form.bean.description}</textarea>
+								<textarea id="description" name="description" class="form-control" placeholder="Description du burger">${form.bean.description}</textarea>
 								<c:if test="${form.errors.description.error}">
 									 <span class="help-block"> ${form.errors.description.errorMessage}</span>
 								</c:if>
 			    			</div>
 			    			
 			    			<div class="form-group control-group ${form.errors.category.kindOfMessage}">
-			    				<select class="form-control" name="category">
-				    				<c:forEach items="${form.bean.allCategories}" var="category">
+			    				<select class="form-control" name="ingredient">
+				    				<c:forEach items="${form.bean.allIngredients}" var="ingredient">
 				    					<c:choose>
-				    						<c:when test="${category.selected}">
-						    					<option value="${category.id}" selected="selected">${category.libelle}</option>
+				    						<c:when test="${ingredient.selected}">
+						    					<option value="${ingredient.id}" selected="selected">${ingredient.nom}</option>
 				    						</c:when>
 				    						<c:otherwise>
-						    					<option value="${category.id}">${category.libelle}</option>					
+						    					<option value="${ingredient.id}">${ingredient.nom}</option>					
 				    						</c:otherwise>
 				    					</c:choose>
 				    				</c:forEach>

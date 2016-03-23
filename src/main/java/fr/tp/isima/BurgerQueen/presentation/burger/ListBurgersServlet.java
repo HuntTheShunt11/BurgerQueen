@@ -16,7 +16,7 @@ public class ListBurgersServlet extends BurgersServlet {
 
 	@Override
 	protected Page process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		final List<Burger> burgers = getArticles().findAllBurgers();
+		final List<Burger> burgers = getBurgers().findAllBurgers();
 		if (burgers.isEmpty()) {
 			System.out.println("liste vide!");
 		}
