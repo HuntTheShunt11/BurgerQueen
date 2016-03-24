@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.google.common.base.Preconditions;
 
+import fr.tp.isima.BurgerQueen.Note;
 import fr.tp.isima.BurgerQueen.persistence.BurgerBean;
 import fr.tp.isima.BurgerQueen.persistence.BurgerDao;
 import fr.tp.isima.BurgerQueen.persistence.IngredientDao;
@@ -51,6 +52,22 @@ public class Burger {
 
 	public Long getId() {
 		return burgerBean.getId();
+	}
+
+	public Note getOrig() {
+		return burgerBean.orig;
+	}
+
+	public Note getQual() {
+		return burgerBean.qual;
+	}
+
+	public Note getPres() {
+		return burgerBean.pres;
+	}
+
+	public Note getGout() {
+		return burgerBean.gout;
 	}
 
 	public void save() {

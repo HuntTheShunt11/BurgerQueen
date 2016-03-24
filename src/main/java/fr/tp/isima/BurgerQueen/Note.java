@@ -1,9 +1,12 @@
 package fr.tp.isima.BurgerQueen;
+
 import java.io.Serializable;
 
 public class Note implements Serializable {
+	public static final int NOTE_MAX = 5;
+
 	private float note = 0.0f;
-	private final int votes = 0;
+	private int votes = 0;
 
 	public float getNote() {
 		return note;
@@ -13,7 +16,12 @@ public class Note implements Serializable {
 		return votes;
 	}
 
-	public void vote(float note) {
+	public void vote(int note) {
+		if (note < 0 || note > NOTE_MAX) {
+			throw new IllegalArgumentException("Note invalide");
+		}
+
 		this.note = (votes * this.note + note) / (votes + 1);
+		++votes;
 	}
 }

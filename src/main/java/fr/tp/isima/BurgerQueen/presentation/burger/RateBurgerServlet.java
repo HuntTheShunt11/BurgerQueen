@@ -11,13 +11,13 @@ import fr.tp.isima.BurgerQueen.business.Burger;
 import fr.tp.isima.BurgerQueen.presentation.Form;
 import fr.tp.isima.BurgerQueen.presentation.Page;
 
-@WebServlet("/editBurger")
-public class EditBurgerServlet extends BurgersServlet {
+@WebServlet("/rateBurger")
+public class RateBurgerServlet extends BurgersServlet {
 
 	@Override
 	protected Page process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		final Burger burger = getBurgers().findById(Long.parseLong(req.getParameter("id")));
 		final BurgerViewBean burgerViewBean = new BurgerViewBean(getBurgers(), getIngredients(), burger);
-		return forwardOnEdit().withForm(Form.successForm(burgerViewBean)).build();
+		return forwardOnRate().withForm(Form.successForm(burgerViewBean)).build();
 	}
 }

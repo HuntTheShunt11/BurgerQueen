@@ -42,6 +42,6 @@ public class Form<T> {
 	}
 
 	public static <T> Form<T> successForm(T t) {
-		return new Form(t, newErrorBuilder().build());
+		return new Form<T>(t, newErrorBuilder().build());
 	}
 }

@@ -34,10 +34,10 @@ public class FillDataBase {
 		burger.addIngredient(tomate);
 		burger.addIngredient(steak);
 		burger.setDescription("cacahuete");
-		burger.gout.vote(5.0f);
-		burger.orig.vote(4.0f);
-		burger.pres.vote(3.0f);
-		burger.qual.vote(2.0f);
+		burger.gout.vote(5);
+		burger.orig.vote(4);
+		burger.pres.vote(3);
+		burger.qual.vote(2);
 		burgerDao.save(burger);
 
 	}
