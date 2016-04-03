@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Une page generant une citation aleatoire</title>
 <%@include file="head.jsp"%>
 <link rel="stylesheet" type="text/css"
@@ -18,21 +18,18 @@
 				class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<%-- 			    		<h3 class="panel-title">Liste des burgers notés&nbsp;<a href="${pageContext.request.contextPath}/addNewArticle" style="float:right">Créer un article</a></h3> --%>
+						<%-- 			    		<h3 class="panel-title">Liste des burgers notÃ©s&nbsp;<a href="${pageContext.request.contextPath}/addNewArticle" style="float:right">CrÃ©er un article</a></h3> --%>
 					</div>
 					<div class="panel-body">
 						<table class="table table-striped">
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>Reference</th>
+									<th>Nom</th>
 									<th>Description</th>
-									<th>Ingrédients</th>
-									<th>Originalité</th>
-									<th>Qualité</th>
-									<th>Présentation</th>
-									<th>Goût</th>
-									<th>Actions</th>
+									<th>IngrÃ©dients</th>
+									<th>Note</th>
+									<th colspan="2">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -48,10 +45,11 @@
 												</c:forEach>
 											</ul>
 										</td>
-										<td><fmt:formatNumber value="${burger.orig.note}" minFractionDigits="1" maxFractionDigits="1"/></td>
-										<td><fmt:formatNumber value="${burger.qual.note}" minFractionDigits="1" maxFractionDigits="1"/></td>
-										<td><fmt:formatNumber value="${burger.pres.note}" minFractionDigits="1" maxFractionDigits="1"/></td>
-										<td><fmt:formatNumber value="${burger.gout.note}" minFractionDigits="1" maxFractionDigits="1"/></td>
+										<td><fmt:formatNumber value="${burger.moyenne}"
+												minFractionDigits="1" maxFractionDigits="1" /></td>
+										<td><a
+											href="${pageContext.request.contextPath}/seeBurger?id=${burger.id}">DÃ©tails</a>
+										</td>
 										<td><a
 											href="${pageContext.request.contextPath}/rateBurger?id=${burger.id}">Noter</a>&nbsp;(${burger.orig.votes})
 										</td>

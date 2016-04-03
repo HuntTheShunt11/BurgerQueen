@@ -3,6 +3,7 @@ package fr.tp.isima.BurgerQueen.presentation.burger;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import fr.tp.isima.BurgerQueen.Note;
 import fr.tp.isima.BurgerQueen.business.Burger;
 import fr.tp.isima.BurgerQueen.business.Burgers;
 import fr.tp.isima.BurgerQueen.business.Ingredient;
@@ -41,6 +42,22 @@ public class BurgerViewBean {
 		return burger.getId();
 	}
 
+	public Note getOrig() {
+		return burger.getOrig();
+	}
+
+	public Note getQual() {
+		return burger.getQual();
+	}
+
+	public Note getPres() {
+		return burger.getPres();
+	}
+
+	public Note getGout() {
+		return burger.getGout();
+	}
+	
 	public List<Ingredient> getIngredients() {
 		return burger.getIngredients();
 	}

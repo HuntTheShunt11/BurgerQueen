@@ -35,7 +35,8 @@ public class Burger {
 	}
 
 	public void setIngredients(List<Ingredient> ingredients) {
-		burgerBean.setIngredients(ingredients.stream().map(ing -> ing.getIngredientBean()).collect(Collectors.toList()));
+		burgerBean
+				.setIngredients(ingredients.stream().map(ing -> ing.getIngredientBean()).collect(Collectors.toList()));
 	}
 
 	public void setNom(String nom) {
@@ -70,12 +71,18 @@ public class Burger {
 		return burgerBean.gout;
 	}
 
+	public float getMoyenne() {
+		return (burgerBean.orig.getNote() + burgerBean.qual.getNote() + burgerBean.pres.getNote()
+				+ burgerBean.gout.getNote()) / 4.0f;
+	}
+
 	public void save() {
 		burgerDao.save(burgerBean);
 	}
 
 	public List<Ingredient> getIngredients() {
-		return burgerBean.getIngredients().stream().map(ing -> new Ingredient(ingredientDao, ing)).collect(Collectors.toList());
+		return burgerBean.getIngredients().stream().map(ing -> new Ingredient(ingredientDao, ing))
+				.collect(Collectors.toList());
 	}
 
 	public boolean exists() {
