@@ -12,6 +12,7 @@
 	href="${pageContext.request.contextPath}/css/formulaire-elegant.css">
 </head>
 <body>
+	<%@include file="banner.jsp" %>
 	<div class="container">
 		<div class="row centered-form">
 			<div
