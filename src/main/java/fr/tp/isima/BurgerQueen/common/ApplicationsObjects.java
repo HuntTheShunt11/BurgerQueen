@@ -3,10 +3,13 @@ package fr.tp.isima.BurgerQueen.common;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.tp.isima.BurgerQueen.business.Users;
 import fr.tp.isima.BurgerQueen.business.Burgers;
 import fr.tp.isima.BurgerQueen.business.Ingredients;
+import fr.tp.isima.BurgerQueen.persistence.UserDao;
 import fr.tp.isima.BurgerQueen.persistence.BurgerDao;
 import fr.tp.isima.BurgerQueen.persistence.IngredientDao;
+import fr.tp.isima.BurgerQueen.persistence.JpaUserDao;
 import fr.tp.isima.BurgerQueen.persistence.JpaBurgerDao;
 import fr.tp.isima.BurgerQueen.persistence.JpaIngredientDao;
 
@@ -55,10 +58,12 @@ public class ApplicationsObjects {
 	public static ApplicationsObjects loadAll() {
 		final ApplicationsObjects app = new ApplicationsObjects();
 
+		final UserDao userDao = app.addObject(UserDao.class, new JpaUserDao());
 		final BurgerDao burgerDao = app.addObject(BurgerDao.class, new JpaBurgerDao());
 		final IngredientDao ingredientDao = app.addObject(IngredientDao.class, new JpaIngredientDao());
 
 		// On ajoute les services metiers
+		app.addObject(Users.class, new Users(userDao));
 		app.addObject(Ingredients.class, new Ingredients(ingredientDao));
 		app.addObject(Burgers.class, new Burgers(burgerDao, ingredientDao));
 

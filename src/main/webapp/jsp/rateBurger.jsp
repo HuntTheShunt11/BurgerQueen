@@ -48,7 +48,7 @@
 									</tr>
 								</c:forEach>
 							</table>
-							<input type="submit" value="Enregistrer l'article"
+							<input type="submit" value="Noter!"
 								class="btn btn-info btn-block" /> <input type="hidden"
 								name="id" value="${form.bean.id}" />
 						</form>

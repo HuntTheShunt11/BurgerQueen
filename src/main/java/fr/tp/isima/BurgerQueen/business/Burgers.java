@@ -10,8 +10,7 @@ import fr.tp.isima.BurgerQueen.persistence.BurgerDao;
 import fr.tp.isima.BurgerQueen.persistence.IngredientDao;
 
 /**
- * Cette classe de service permet d'accéder à l'ensemble des articles et
- * categories
+ * Cette classe de service permet d'accéder à l'ensemble des burgers
  * 
  * @see BurgerDao
  * @see IngredientDao
