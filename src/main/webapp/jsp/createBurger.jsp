@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Évaluation : ${form.bean.nom}</title>
+<title>Nouveau burger</title>
 <%@include file="head.jsp"%>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/formulaire-elegant.css">
@@ -17,12 +17,21 @@
 				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Évaluation : ${form.bean.nom}</h3>
+						<h3 class="panel-title">Nouveau burger</h3>
 					</div>
 					<div class="panel-body">
-						<div class="form-group">${form.bean.description}</div>
 						<form role="form" method="post"
-							action="${pageContext.request.contextPath}/saveRate?id=${form.bean.id}">
+							action="${pageContext.request.contextPath}/saveBurger">
+
+						<h3>Nom du burger</h3>
+						<input type="text" name="nom" />
+
+						<h3>Description du burger</h3>
+						<textarea name="desc"></textarea>
+
+						<h3>Ingrédients</h3>
+						
+						TODO: ingrédients
 
 						<% pageContext.setAttribute("labels", new String[][]{
 							{"orig", "Originalité"},
@@ -31,6 +40,7 @@
 							{"gout", "Goût"}
 						}); %>
 
+							<h3>Notez ce burger</h3>
 							<table class="form-group ${form.errors.note.kindOfMessage}">
 								<c:if test="${form.errors.note.error}">
 									 <p class="text-error"> ${form.errors.note.errorMessage}</p>
@@ -48,7 +58,7 @@
 									</tr>
 								</c:forEach>
 							</table>
-							<input type="submit" value="Enregistrer le vote"
+							<input type="submit" value="Enregistrer le burger"
 								class="btn btn-info btn-block" /> <input type="hidden"
 								name="id" value="${form.bean.id}" />
 						</form>

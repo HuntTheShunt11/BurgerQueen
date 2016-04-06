@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Une page generant une citation aleatoire</title>
+<title>Liste des burgers</title>
 <%@include file="head.jsp"%>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/formulaire-elegant.css">
@@ -60,6 +60,7 @@
 						</table>
 					</div>
 				</div>
+				<a class="btn btn-info btn-block" href="${pageContext.request.contextPath}/createBurger">Add a burger</a>
 			</div>
 		</div>
 	</div>

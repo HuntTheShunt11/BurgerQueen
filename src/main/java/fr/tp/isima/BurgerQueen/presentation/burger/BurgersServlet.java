@@ -21,6 +21,10 @@ abstract class BurgersServlet extends NavigableServlet {
 	protected final PageBuilder forwardOnRate() {
 		return Page.forwardOn("/jsp/rateBurger.jsp");
 	}
+	
+	protected final PageBuilder forwardOnCreate() {
+		return Page.forwardOn("/jsp/createBurger.jsp");
+	}
 
 	protected final PageBuilder redirectOnListBurgers(HttpServletRequest req) {
 		return Page.redirectOn(req.getContextPath() + "/listBurgers");
