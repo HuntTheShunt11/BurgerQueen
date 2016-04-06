@@ -7,6 +7,8 @@ import fr.tp.isima.BurgerQueen.persistence.BurgerBean;
 import fr.tp.isima.BurgerQueen.persistence.BurgerDao;
 import fr.tp.isima.BurgerQueen.persistence.IngredientBean;
 import fr.tp.isima.BurgerQueen.persistence.IngredientDao;
+import fr.tp.isima.BurgerQueen.persistence.UserBean;
+import fr.tp.isima.BurgerQueen.persistence.UserDao;
 
 public class FillDataBase {
 
@@ -15,7 +17,8 @@ public class FillDataBase {
 
 		final IngredientDao ingredientDao = objects.get(IngredientDao.class);
 		final BurgerDao burgerDao = objects.get(BurgerDao.class);
-
+		final UserDao userDao = objects.get(UserDao.class);
+		
 		final List<BurgerBean> burgers = burgerDao.findAllBurgers();
 
 		ingredientDao.deleteAll();
@@ -39,6 +42,10 @@ public class FillDataBase {
 		burger.pres.vote(3);
 		burger.qual.vote(2);
 		burgerDao.save(burger);
+		
+		final UserBean user = new UserBean();
+		user.setNom("test");
+		userDao.save(user);
 
 	}
 }
