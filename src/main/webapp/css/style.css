@@ -14,9 +14,6 @@
   background-color: #0033A1;
 }
 
-
-
-
 .navbar-burgerQueen {
     background-color: #BD0034;
     border: none;
@@ -33,6 +30,14 @@
 	background-color: transparent;
 }
 
+.dropdown-menu{
+	background-color: #0033A1;
+}
+
+.dropdown-menu > li > a {
+  color: #fff;
+}
+
 .container {
   width: 100%;
   margin-left: 0px;
@@ -40,3 +45,7 @@
   border-radius: 0px;
 }
 
+.text-error{
+	font-weight: bold;
+	color: #FF0000;
+}

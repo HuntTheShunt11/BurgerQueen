@@ -22,7 +22,7 @@
 					<div class="panel-body">
 						<div class="form-group">${form.bean.description}</div>
 						<form role="form" method="post"
-							action="${pageContext.request.contextPath}/saveRate?id=${form.bean.id}">
+							action="${pageContext.request.contextPath}/save/Rate?id=${form.bean.id}">
 
 						<% pageContext.setAttribute("labels", new String[][]{
 							{"orig", "Originalité"},

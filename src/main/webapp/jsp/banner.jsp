@@ -11,11 +11,25 @@
                     <li>
 						<div class="dropdown">
 						  <button class="btn btn-custom dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							Profil
+							<c:choose>
+								<c:when test="${empty util}">
+						  			Menu
+						  		</c:when>    
+									<c:otherwise>
+										Bonjour ${util.nom} !
+									</c:otherwise>
+							</c:choose>
 							<span class="caret"></span>
 						  </button>
-						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-						  		<li><a href="${pageContext.request.contextPath}/connection.jsp">Connexion</a></li>
+						  <ul class="dropdown-menu">
+						  	<c:choose>
+								<c:when test="${empty util}">
+						  			<li><a href="${pageContext.request.contextPath}/connection.jsp" >Connexion</a></li>
+						  		</c:when>    
+									<c:otherwise>
+										<li><a href="${pageContext.request.contextPath}/Deconnection">Déconnexion</a></li>
+									</c:otherwise>
+							</c:choose>
 						  </ul>
 						</div>
 					</li>
