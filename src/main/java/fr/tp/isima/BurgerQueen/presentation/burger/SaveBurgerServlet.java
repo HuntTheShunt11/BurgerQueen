@@ -16,7 +16,7 @@ import fr.tp.isima.BurgerQueen.presentation.ErrorFields;
 import fr.tp.isima.BurgerQueen.presentation.Form;
 import fr.tp.isima.BurgerQueen.presentation.Page;
 
-@WebServlet("/saveBurger")
+@WebServlet("/save/Burger")
 public class SaveBurgerServlet extends BurgersServlet {
 
 	@Override

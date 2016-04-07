@@ -21,7 +21,7 @@
 					</div>
 					<div class="panel-body">
 						<form role="form" method="post"
-							action="${pageContext.request.contextPath}/saveBurger">
+							action="${pageContext.request.contextPath}/save/Burger">
 
 						<h3>Nom du burger</h3>
 						<c:if test="${form.errors.burger.error}">

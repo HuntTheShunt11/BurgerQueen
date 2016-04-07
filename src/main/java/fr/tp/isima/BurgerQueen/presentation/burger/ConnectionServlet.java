@@ -25,13 +25,12 @@ public class ConnectionServlet extends BurgersServlet {
 	protected Page process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		final HttpSession session = req.getSession();
+		
+		final String name = req.getParameter("pseudo");
+		User user = findUserByName(name);
 
-        if (session == null || session.getAttribute("user") == null) {
-            final String name = req.getParameter("pseudo");
+        if (session == null || session.getAttribute("util") == null) {
             
-            
-            User user = findUserByName(name);
-
             if (user == null) {
             	user = getUsers().createUser();
             	user.setNom(name);
@@ -44,6 +43,8 @@ public class ConnectionServlet extends BurgersServlet {
                 }
             }
         }
+        
+        session.setAttribute("util", user);
 
 		return redirectOnListBurgers(req).build();
 		
