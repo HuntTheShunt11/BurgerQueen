@@ -7,6 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Nouveau burger</title>
 <%@include file="head.jsp"%>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/createBurger.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/formulaire-elegant.css">
 <body>
@@ -31,7 +33,18 @@
 
 						<h3>Ingrédients</h3>
 						
-						TODO: ingrédients
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-btn"><select class="form-control" id="ingredientSelector">
+									<c:forEach items="${form.bean.allIngredients}" var="ingredient">
+										<option value="${ingredient.id}">${ingredient.nom}</option>
+									</c:forEach>
+								</select></span>
+								<span class="input-group-btn"><button type="button" class="btn btn-primary" onclick="javascript:addIngredient();">Ajouter</button></span>
+							</div>
+						</div>
+						
+						<ul class="list-group" id="ingredientsList"></ul>
 
 						<% pageContext.setAttribute("labels", new String[][]{
 							{"orig", "Originalité"},
@@ -59,8 +72,7 @@
 								</c:forEach>
 							</table>
 							<input type="submit" value="Enregistrer le burger"
-								class="btn btn-info btn-block" /> <input type="hidden"
-								name="id" value="${form.bean.id}" />
+								class="btn btn-info btn-block" />
 						</form>
 					</div>
 				</div>

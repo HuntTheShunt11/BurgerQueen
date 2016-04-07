@@ -16,6 +16,7 @@ public class CreateBurgerServlet extends BurgersServlet {
 
 	@Override
 	protected Page process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		return forwardOnCreate().build();
+		final BurgerViewBean burgerViewBean = new BurgerViewBean(getBurgers(), getIngredients(), null);
+		return forwardOnCreate().withForm(Form.successForm(burgerViewBean)).build();
 	}
 }

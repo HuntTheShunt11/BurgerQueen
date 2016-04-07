@@ -3,6 +3,9 @@ package fr.tp.isima.BurgerQueen.presentation.burger;
 import static fr.tp.isima.BurgerQueen.presentation.ErrorFields.newErrorBuilder;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.tp.isima.BurgerQueen.business.Burger;
 import fr.tp.isima.BurgerQueen.business.Burgers;
+import fr.tp.isima.BurgerQueen.business.Ingredients;
 import fr.tp.isima.BurgerQueen.presentation.ErrorFields;
 import fr.tp.isima.BurgerQueen.presentation.Form;
 import fr.tp.isima.BurgerQueen.presentation.Page;
@@ -21,6 +25,7 @@ public class SaveBurgerServlet extends BurgersServlet {
 	@Override
 	protected Page process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		final Burgers burgers = getBurgers();
+		final Ingredients ingredients = getIngredients();
 		final Burger burger = burgers.createBurger();
 
 		try {
@@ -34,6 +39,16 @@ public class SaveBurgerServlet extends BurgersServlet {
 
 			burger.setNom(nom);
 			burger.setDescription(desc);
+			
+			String[] ing = req.getParameterValues("ingredients[]");
+			
+			burger.setIngredients(
+				Arrays.stream(ing)
+				.map(id -> ingredients.findIngredientById(Integer.parseInt(id)))
+				.map(opt -> opt.get())
+				.collect(Collectors.toList())
+			);
+			
 			burger.getOrig().vote(orig);
 			burger.getQual().vote(qual);
 			burger.getPres().vote(pres);
