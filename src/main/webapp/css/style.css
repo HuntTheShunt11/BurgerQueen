@@ -40,3 +40,7 @@
   border-radius: 0px;
 }
 
+.text-error{
+	font-weight: bold;
+	color: #FF0000;
+}

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.tp.isima.BurgerQueen.business.Burger;
 import fr.tp.isima.BurgerQueen.business.Burgers;
+import fr.tp.isima.BurgerQueen.persistence.UniqueConstraintException;
 import fr.tp.isima.BurgerQueen.presentation.ErrorFields;
 import fr.tp.isima.BurgerQueen.presentation.Form;
 import fr.tp.isima.BurgerQueen.presentation.Page;
@@ -40,7 +41,11 @@ public class SaveBurgerServlet extends BurgersServlet {
 			burger.getGout().vote(gout);
 
 			burger.save();
-		} catch (final IllegalArgumentException e) {
+		} catch (final UniqueConstraintException e) {
+			
+			return returnToCreatePage(burger, newErrorBuilder().addField("burger", "Ce burger existe déjà!").build());
+			
+        } catch (final IllegalArgumentException e) {
 
 			return returnToCreatePage(burger, newErrorBuilder().addField("note", "note invalide").build());
 		}

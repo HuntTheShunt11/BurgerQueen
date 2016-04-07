@@ -24,6 +24,9 @@
 							action="${pageContext.request.contextPath}/saveBurger">
 
 						<h3>Nom du burger</h3>
+						<c:if test="${form.errors.burger.error}">
+							<p class="text-error"> ${form.errors.burger.errorMessage}</p>
+						</c:if>
 						<input type="text" name="nom" />
 
 						<h3>Description du burger</h3>
