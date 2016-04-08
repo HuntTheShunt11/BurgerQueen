@@ -18,10 +18,6 @@ public class User {
 		this.userDao = userDao;
 		this.userBean = userBean;
 	}
-	
-	public UserBean getUserBean() {
-		return userBean;
-	}
 
 	public void setNom(String nom) {
 		userBean.setNom(nom);

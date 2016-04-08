@@ -7,7 +7,7 @@ public interface IngredientDao extends Dao<IngredientBean> {
 	List<IngredientBean> findAllIngredients();
 
 	@Override
-	void save(IngredientBean articleBean);
+	void save(IngredientBean ingredientBean);
 
 	void delete(IngredientBean populatedBean);
 

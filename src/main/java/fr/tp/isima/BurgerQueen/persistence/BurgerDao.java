@@ -7,17 +7,17 @@ public interface BurgerDao extends Dao<BurgerBean> {
 
     /**
      * 
-     * @return la liste de tous les articles
+     * @return la liste de tous les burgers
      */
     List<BurgerBean> findAllBurgers();
 
     /**
-     * Sauvegarde l'article dans la couche persistance
+     * Sauvegarde le burger dans la couche persistance
      * 
-     * @param articleBean
+     * @param burgerBean
      */
     @Override
-    void save(BurgerBean articleBean);
+    void save(BurgerBean burgerBean);
 
     /**
      * 
