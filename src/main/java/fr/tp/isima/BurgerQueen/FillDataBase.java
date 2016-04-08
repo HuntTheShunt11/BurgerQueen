@@ -27,16 +27,33 @@ public class FillDataBase {
 		final IngredientBean tomate = new IngredientBean();
 		tomate.setNom("Tomate");
 		ingredientDao.save(tomate);
+		
+		final IngredientBean salade = new IngredientBean();
+		salade.setNom("Salade");
+		ingredientDao.save(salade);
 
 		final IngredientBean steak = new IngredientBean();
 		steak.setNom("Steak haché");
 		ingredientDao.save(steak);
+		
+		final IngredientBean cheddar = new IngredientBean();
+		cheddar.setNom("Cheddar");
+		ingredientDao.save(cheddar);
+		
+		final IngredientBean chevre = new IngredientBean();
+		chevre.setNom("Chevre");
+		ingredientDao.save(chevre);
+		
+		final IngredientBean sauce = new IngredientBean();
+		sauce.setNom("Sauce Burger");
+		ingredientDao.save(sauce);
+		
 
 		final BurgerBean burger = new BurgerBean();
 		burger.setNom("Le classic tomato");
 		burger.addIngredient(tomate);
 		burger.addIngredient(steak);
-		burger.setDescription("cacahuete");
+		burger.setDescription("Le classique!");
 		burger.gout.vote(5);
 		burger.orig.vote(4);
 		burger.pres.vote(3);

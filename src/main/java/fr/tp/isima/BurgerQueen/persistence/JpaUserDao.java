@@ -1,7 +1,5 @@
 package fr.tp.isima.BurgerQueen.persistence;
 
-import java.util.List;
-
 public class JpaUserDao implements UserDao {
 
 	private final EntityManagerExecutor entityManagerExecutor = new EntityManagerExecutor();
